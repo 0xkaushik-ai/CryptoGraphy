@@ -40,3 +40,15 @@ func gfMul(a, b byte) byte {
 
 	return product
 }
+
+func gfInverse(a byte) byte {
+	if a == 0 {
+		return 0
+
+	}
+	result := byte(1)
+	for i := 0; i < 254; i++ {
+		result = gfMul(result, a)
+	}
+	return result
+}
